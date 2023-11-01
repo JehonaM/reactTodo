@@ -1,35 +1,24 @@
 import React, { useState } from "react";
 import Form from "./components/Form";
-import Todo from "./components/Todo";
 import { nanoid } from "nanoid";
 
-import './App.css';
-
+import "./App.css";
 
 function App(props) {
-  
   const [tasks, setTasks] = useState(props.tasks);
   function addTask(name) {
     const newTask = { id: `todo-${nanoid()}`, name, completed: false };
     setTasks([...tasks, newTask]);
-    console.log(newTask);
-    console.log(tasks)
   }
-  console.log(props.tasks);
 
   const taskList = tasks.map((task) => (
-    <li>
-      {task.name}
-    
-    </li>
+    <li className="list-none">{task.name}</li>
   ));
   return (
-    <div>
-        <h1>My todo list</h1>
-        <Form addTask={addTask}/>
-     
-       <div>{taskList}</div> 
-
+    <div className="flex text-center bg-purple-200 h-screen flex-col pt-40 mb-5">
+      <h1 className="font-bold text-slate-100 text-2xl mb-5">My todo list</h1>
+      <Form className="mb-5" addTask={addTask} />
+      <div>{taskList}</div>
     </div>
   );
 }
