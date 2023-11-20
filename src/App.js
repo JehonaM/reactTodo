@@ -18,7 +18,8 @@ function App(props) {
     <div className="flex text-center bg-purple-200 h-screen flex-col pt-40 mb-5">
       <h1 className="font-bold text-slate-100 text-2xl mb-5">My todo list</h1>
       <Form className="mb-5" addTask={addTask} />
-      <div>{taskList}</div>
+      <div>{taskList}</div>  <div>{taskList}</div>
+
     </div>
   );
 }
